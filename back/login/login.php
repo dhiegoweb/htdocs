@@ -9,7 +9,7 @@
 		$senha = md5($senha);
 
 		//Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
-		$result_usuario = "SELECT * FROM tb_motorista WHERE email = '$usuario' && senha = '$senha' LIMIT 1";
+		$result_usuario = "SELECT * FROM tb_motorista AND tb_usuario WHERE email = '$usuario' && senha = '$senha' LIMIT 1";
 		$resultado_usuario = mysqli_query($conn, $result_usuario);
 		$resultado = mysqli_fetch_assoc($resultado_usuario);
 
@@ -18,16 +18,17 @@
 			$_SESSION['usuarioId'] = $resultado['id'];
 			$_SESSION['usuarioNome'] = $resultado['nome'];
 			$_SESSION['usuariotelefone'] = $resultado['telefone'];
-      $_SESSION['usuariodata'] = $resultado['data'];
-
+            $_SESSION['usuariodata'] = $resultado['data'];
 			$_SESSION['usuarioNiveisAcessoId'] = $resultado['nivel'];
 			$_SESSION['usuarioEmail'] = $resultado['email'];
 			if($_SESSION['usuarioNiveisAcessoId'] == "1"){
-				header("Location: ../../front/adm/index.php");
-			}elseif($_SESSION['usuarioNiveisAcessoId'] == "2"){
-				header("Location: ../../front/driver/index.html");
+				header("Location: ../../adm/index.php");
+			}else if($_SESSION['usuarioNiveisAcessoId'] == "2"){
+				header("Location: ../../driver/index.php");
+			}else if($_SESSION['usuarioNiveisAcessoId'] == "3"){
+				header("Location: ../../cliente/index.php");
 			}else{
-				header("Location: ../../front/cliente/index.html");
+				header("Location: ../../cliente/index1.php");
 			}
 		//Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
 		//redireciona o usuario para a página de login

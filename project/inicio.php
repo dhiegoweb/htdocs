@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./Styles/index.css">
 </head>
 <body>
-    <?php include_once ("menu.php"); ?>
+    <?php include_once ("menu.php");  ?>
     
     <section id="home"> <!--Inicio do Home-->
         <div class="container">

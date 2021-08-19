@@ -12,7 +12,7 @@
 <body>
     <?php include_once ("menu.php");  ?>
     
-    <section id="home"> <!--Inicio do Home-->
+    <section id="home"> <!--Inicio do Home mmm-->
         <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex">
